@@ -1,4 +1,4 @@
-export const CORSPROXY = 'https://proxy.cors.sh/';
+export const CORSPROXY = 'https://crossorigin.me/';
 
 export const logo = `https://cdn.worldvectorlogo.com/logos/swiggy-1.svg`;
 
