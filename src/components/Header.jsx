@@ -30,7 +30,9 @@ const Header = () =>{
         dispatch(toggleLocation());
     }
 
+
     return (
+      <>
      <div className="w-full bg-white shadow-lg fixed z-10 p-2">
         <header className="w-full md:w-9/12 p-3 bg-white h-[60px] m-auto"> 
 
@@ -142,6 +144,7 @@ const Header = () =>{
         </ul>
       </div> 
     </div>
+    </>
       
     )
 }

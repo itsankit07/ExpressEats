@@ -11,6 +11,7 @@ const useRestaurant = () => {
 
     useEffect(()=>{
         fetchRestaurant();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const fetchRestaurant = async () =>{
@@ -31,7 +32,6 @@ const useRestaurant = () => {
                       card?.card?.card?.gridElements?.infoWithStyle?.restaurants !== undefined
                   )?.card?.card?.gridElements?.infoWithStyle?.restaurants;  //then we will access the card which have all the restaurant;
                 const BannerData = jsonData?.data?.cards?.find((card)=>card?.card?.card?.id==="topical_banner")?.card?.card?.gridElements?.infoWithStyle?.info;
-
                 const CategoryData = jsonData?.data?.cards?.find((card)=>card?.card?.card?.id==="whats_on_your_mind")?.card?.card?.imageGridCards?.info;
 
                 return[ResData,BannerData,CategoryData]

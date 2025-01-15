@@ -4,7 +4,7 @@ const locationSlice = createSlice({
     name : "location",
 
     initialState : {
-        userLocation : null || JSON.parse(localStorage.getItem('UserLocation')),
+        userLocation : JSON.parse(localStorage.getItem('UserLocation')) || {"city":"Delhi Division","lat":28.7040592,"lng":77.10249019999999,"address":"Delhi, India"},
     },
 
     reducers : {

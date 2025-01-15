@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import RestaurantCard, { RestaurantCardOffer } from "./RestaurantCard";
 import ShimmerUi from "./ShimmerUi";
 
+
 const Home = ()=>{
    const[
     allRestaurant,
@@ -17,6 +18,7 @@ const Home = ()=>{
     filteredRestaurant,
     setFilteredRestaurant
    ]  = useRestaurant();
+
 
    const [SearchText,setSearchText] = useState("");
    const [ErrorMessage,setErrorMessage] = useState("");
@@ -57,25 +59,29 @@ const Home = ()=>{
     setFilteredRestaurant(allRestaurant.filter((res)=>res?.info?.aggregatedDiscountInfoV3))
   }
 
-  const handleRange300to600 = () =>{
-     const filterPrice = allRestaurant.filter((res)=>{ 
-        const price = res?.info?.costForTwo?.substring(1,4);
-    if(price>=300 && price<=600)
-    {
-        return price;
-    }
-  });
-    setFilteredRestaurant(filterPrice);
-  }
-
-  const handleRangelessThan300 = () =>{
-    const filterPrice = allRestaurant.filter((res)=>{
-        const price = res?.info?.costForTwo?.substring(1,4);
-        if(price<300)
-        return price;
+  const handleRange300to600 = () => {
+    const filterPrice = allRestaurant.filter((res) => {
+      const priceString = res?.info?.costForTwo;
+      const price = priceString ? parseInt(priceString.substring(1, 4), 10) : 0; 
+  
+      return price >= 300 && price <= 600; 
     });
-    setFilteredRestaurant(filterPrice);
-  }
+  
+    setFilteredRestaurant(filterPrice); 
+  };
+  
+
+  const handleRangelessThan300 = () => {
+    const filterPrice = allRestaurant.filter((res) => {
+      const priceString = res?.info?.costForTwo;
+      const price = priceString ? parseInt(priceString.substring(1, 4), 10) : 0; 
+  
+      return price < 300; 
+    });
+  
+    setFilteredRestaurant(filterPrice); 
+  };
+  
 
   const handleSearch = () =>{
     if(SearchText!=='')

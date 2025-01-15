@@ -3,7 +3,6 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import { Route, Routes } from 'react-router-dom';
 import RestaurantMenu from './components/RestaurantMenu';
-// import Cart from './components/Cart';
 import { Suspense, lazy } from 'react';
 import ShimmerMenu from './components/ShimmerMenu';
 const About = lazy(()=>import("./components/About"));
